@@ -17,20 +17,25 @@ Se acabar as chances antes de descobrir a palavra, perde.
 # variável com a palavra secreta
 palavra_secreta = "python"
 
-palavra = []
-erros = 1
+palavra = ""
+erros = 0
 
 while True:
-    # entrada do usuario
-    letra = input("Digite uma letra: ")
+    # verificando se palavra é diferente da palavra secreta
+    if palavra != palavra_secreta:
+        # entrada do usuario
+        letra = input("Digite uma letra: ")
+    else:
+        print(f"Você achou a palavra correta: {palavra_secreta}")
+        break
     # verificando se é apenas uma letra e se é do tipo string
     if len(letra) == 1 and letra.isalpha():
         # verificando se a letra está na palavra secreta
         if letra in palavra_secreta:
-            ...
+            palavra += letra
         else:
             # acaba o programa caso tenha 6 erros
-            if erros == 6:
+            if erros == 5:
                 print("As tentativas acabaram. Fim de jogo!")
                 break
             else:
