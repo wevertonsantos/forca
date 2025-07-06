@@ -20,6 +20,9 @@ lista_palavra_secreta = ["_","_","_","_","_","_"]
 palavra = ''.join(lista_palavra_secreta)
 erros = 0
 
+# conjunto para armazenar letras já tentadas
+letras_tentadas = set()
+
 while True:
     # verificando se palavra é diferente da palavra secreta
     if palavra != palavra_secreta:
@@ -28,8 +31,17 @@ while True:
     else:
         print(f"Você achou a palavra correta: {palavra_secreta}")
         break
+
     # verificando se é apenas uma letra e se é do tipo string
     if len(letra) == 1 and letra.isalpha():
+
+        # verifica se já tentou a letra
+        if letra in letras_tentadas:
+            print("Você já tentou essa letra. Tente outra.")
+            continue
+
+        letras_tentadas.add(letra)  # registra a letra
+
         # verificando se a letra está na palavra secreta
         if letra in palavra_secreta:
             # atualizando todas as posições da letra correta
@@ -40,13 +52,14 @@ while True:
             palavra = ''.join(lista_palavra_secreta)
             print("Palavra: ", ' '.join(lista_palavra_secreta))
         else:
+            erros += 1
             # acaba o programa caso tenha 6 erros
-            if erros == 5:
+            if erros == 6:
                 print("As tentativas acabaram. Fim de jogo!")
                 break
             else:
-                print("Palavra: ", ' '.join(lista_palavra_secreta))
-                # aumenta o erro
-                erros += 1
+                print("\nLetra errada.")
+                print("Palavra:", ' '.join(lista_palavra_secreta))
+                print(f"Tentativas restantes: {6 - erros}")
     else:
         print("Você enviou algo errado. Tente digitar apenas uma letra do alfabeto.")
