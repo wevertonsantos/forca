@@ -46,7 +46,7 @@ while True:
                 break
             else:
                 print("Palavra: ", ' '.join(lista_palavra_secreta))
-                # aumenta o erro caso erre
+                # aumenta o erro
                 erros += 1
     else:
         print("Você enviou algo errado. Tente digitar apenas uma letra do alfabeto.")
