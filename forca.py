@@ -17,17 +17,14 @@ Se acabar as chances antes de descobrir a palavra, perde.
 # variável com a palavra secreta
 palavra_secreta = "python"
 lista_palavra_secreta = ["_","_","_","_","_","_"]
-palavra = ""
+palavra = ''.join(lista_palavra_secreta)
 erros = 0
-
-for letra in lista_palavra_secreta:
-    palavra += letra
 
 while True:
     # verificando se palavra é diferente da palavra secreta
     if palavra != palavra_secreta:
         # entrada do usuario
-        letra = input("Digite uma letra: ").lower()
+        letra = input("Digite uma letra: ").lower().strip()
     else:
         print(f"Você achou a palavra correta: {palavra_secreta}")
         break
@@ -52,4 +49,4 @@ while True:
                 # aumenta o erro caso erre
                 erros += 1
     else:
-        print("Você enviou algo errado. Tente novamente!")
+        print("Você enviou algo errado. Tente digitar apenas uma letra do alfabeto.")
