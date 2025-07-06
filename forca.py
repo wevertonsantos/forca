@@ -38,14 +38,14 @@ while True:
                     lista_palavra_secreta[i] = letra
             # atualizando a string "palavra"
             palavra = ''.join(lista_palavra_secreta)
-            print(palavra)
+            print("Palavra: ", ' '.join(lista_palavra_secreta))
         else:
             # acaba o programa caso tenha 6 erros
             if erros == 5:
                 print("As tentativas acabaram. Fim de jogo!")
                 break
             else:
-                print(palavra)
+                print("Palavra: ", ' '.join(lista_palavra_secreta))
                 # aumenta o erro caso erre
                 erros += 1
     else:
