@@ -16,16 +16,19 @@ Se acabar as chances antes de descobrir a palavra, perde.
 
 # variável com a palavra secreta
 palavra_secreta = "python"
-lista_palavra_secreta = ["_","_","_","_","_"]
+lista_palavra_secreta = ["_","_","_","_","_","_"]
 letras_python = {"p":False,"y":False,"t":False,"h":False,"o":False,"n":False}
 palavra = ""
 erros = 0
+
+for letra in lista_palavra_secreta:
+    palavra += letra
 
 while True:
     # verificando se palavra é diferente da palavra secreta
     if palavra != palavra_secreta:
         # entrada do usuario
-        letra = input("Digite uma letra: ")
+        letra = input("Digite uma letra: ").lower()
     else:
         print(f"Você achou a palavra correta: {palavra_secreta}")
         break
@@ -35,13 +38,13 @@ while True:
         if letra in palavra_secreta:
             letras_python[letra] = True
             # pegando cada letra do dic
-            for letra in letras_python.keys():
+            for letra_atual in letras_python.keys():
                 # verificando se a chave letra tem valor True e não está na palavra
-                if letras_python[letra] == True and letra not in palavra:
+                if letras_python[letra_atual] == True and letra_atual not in palavra:
                     # pegando o índice de cada elemento do dicionário
-                    indice_dic = list(letras_python.keys()).index(letra)
+                    indice_dic = list(letras_python.keys()).index(letra_atual)
                     # colocando a letra na respectiva posição
-                    lista_palavra_secreta[indice_dic] = letra
+                    lista_palavra_secreta[indice_dic] = letra_atual
             # juntando a lista em uma única string
             palavra = ''.join(lista_palavra_secreta)
             print(palavra)
