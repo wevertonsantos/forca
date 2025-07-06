@@ -17,3 +17,11 @@ Se acabar as chances antes de descobrir a palavra, perde.
 # variável com a palavra secreta
 palavra_secreta = "python"
 
+while True:
+    # entrada do usuario
+    letra = input("Digite uma letra: ")
+    # verificando se é apenas uma letra e se é do tipo string
+    if len(letra) == 1 and letra.isalpha():
+        ...
+    else:
+        print("Você enviou algo errado. Tente novamente!")
