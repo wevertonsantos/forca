@@ -26,7 +26,6 @@ while True:
     if palavra != palavra_secreta:
         # entrada do usuario
         letra = input("Digite uma letra: ")
-        print(palavra)
     else:
         print(f"Você achou a palavra correta: {palavra_secreta}")
         break
@@ -37,14 +36,14 @@ while True:
             letras_python[letra] = True
             # pegando cada letra do dic
             for letra in letras_python.keys():
-                # verificando se a chave letra tem valor True
-                if letras_python[letra] == True:
+                # verificando se a chave letra tem valor True e não está na palavra
+                if letras_python[letra] == True and letra not in palavra:
                     # pegando o índice de cada elemento do dicionário
                     indice_dic = list(letras_python.keys()).index(letra)
                     # colocando a letra na respectiva posição
                     lista_palavra_secreta[indice_dic] = letra
-            for letra in lista_palavra_secreta:
-                palavra += letra
+            # juntando a lista em uma única string
+            palavra = ''.join(lista_palavra_secreta)
             print(palavra)
         else:
             # acaba o programa caso tenha 6 erros
