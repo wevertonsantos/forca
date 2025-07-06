@@ -17,7 +17,6 @@ Se acabar as chances antes de descobrir a palavra, perde.
 # variável com a palavra secreta
 palavra_secreta = "python"
 lista_palavra_secreta = ["_","_","_","_","_","_"]
-letras_python = {"p":False,"y":False,"t":False,"h":False,"o":False,"n":False}
 palavra = ""
 erros = 0
 
@@ -36,16 +35,11 @@ while True:
     if len(letra) == 1 and letra.isalpha():
         # verificando se a letra está na palavra secreta
         if letra in palavra_secreta:
-            letras_python[letra] = True
-            # pegando cada letra do dic
-            for letra_atual in letras_python.keys():
-                # verificando se a chave letra tem valor True e não está na palavra
-                if letras_python[letra_atual] == True and letra_atual not in palavra:
-                    # pegando o índice de cada elemento do dicionário
-                    indice_dic = list(letras_python.keys()).index(letra_atual)
-                    # colocando a letra na respectiva posição
-                    lista_palavra_secreta[indice_dic] = letra_atual
-            # juntando a lista em uma única string
+            # atualizando todas as posições da letra correta
+            for i, l in enumerate(palavra_secreta):
+                if l == letra:
+                    lista_palavra_secreta[i] = letra
+            # atualizando a string "palavra"
             palavra = ''.join(lista_palavra_secreta)
             print(palavra)
         else:
